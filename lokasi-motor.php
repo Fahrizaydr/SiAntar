@@ -29,7 +29,7 @@
       margin: 0;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background-image: url('img/bg2.jpg');
+      background-color: #E5FFFE;
       background-size: cover;
       background-repeat: no-repeat;
       height: 100vh; /* agar halaman mengisi tinggi layar */
@@ -90,13 +90,13 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="logo" style="margin-left: 15px;">SiAntar</div>
+    <div class="logo" style="margin-left: 15px;" color="white">SiAntar</div>
     <div class="header-links">
-      <a href="#">Profil</a>
-      <a href="#">Riwayat</a>
-      <a href="#" style="margin-right: 15px;">Logout</a>
+        <a href="index.php">Home</a>
+        <a href="riwayat.php">Riwayat</a>
+        <a href="user/logout.php" style="margin-right: 15px;">Logout</a>
     </div>
-  </header>
+</header>
   <!-- Fitur -->
   <div>
     <h2 style="font-size: 70px; margin-top: 10px; margin-left: 34px">SiAntar</h2>

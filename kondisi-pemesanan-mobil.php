@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Fungsi untuk menyimpan data ke tabel riwayat_pemesanan
-function save_to_riwayat_pemesanan() {
+function save_to_riwayat() {
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -45,7 +45,7 @@ function save_to_riwayat_pemesanan() {
         $distance = $row['distance'];
         $price = $row['price'];
         $created_at = $row['created_at'];
-        $kendaraan = "Motor";
+        $kendaraan = "Mobil"; // Ubah dari "Motor" ke "Mobil"
 
         // Prepared statement untuk menyimpan data ke tabel riwayat_pemesanan
         $sql_insert = "
@@ -75,7 +75,7 @@ function save_to_riwayat_pemesanan() {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
-    save_to_riwayat_pemesanan();
+    save_to_riwayat();
     echo "<script>alert('Terima kasih sudah menggunakan jasa SiAntar'); window.location.href = 'index.php';</script>";
     exit();
 }
@@ -104,6 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
   <!-- Custom Styles -->
   <style>
+    /* Salin CSS dari file sebelumnya */
     body {
       display: flex;
       flex-direction: column;
@@ -115,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
       background-color: #E5FFFE;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 100vh; /* agar halaman mengisi tinggi layar */
+      height: 100vh;
     }
     header {
       width: 100%;
@@ -127,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
       align-items: center;
       position: fixed;
       top: 0;
-      z-index: 1000; /* Pastikan header tetap di atas */
+      z-index: 1000;
     }
     .logo {
       font-size: 24px;
@@ -185,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
     }
     .buttons {
       display: flex;
-      justify-content: center; /* Mengubah alignment ke tengah */
+      justify-content: center;
       margin-top: 20px;
     }
     .buttons button {
@@ -205,10 +206,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
       background-color: #f44336;
     }
     .buttons .left-button {
-      margin-right: auto; /* Posisi di kiri */
+      margin-right: auto;
     }
     .buttons .right-button {
-      margin-left: auto; /* Posisi di kanan */
+      margin-left: auto;
     }
   </style>
 </head>
@@ -341,7 +342,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_to_riwayat'])) {
 
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-          echo "var marker = L.marker([-2.9623, 104.7418]).addTo(map);"; 
+          echo "var marker = L.marker([-2.9623, 104.7418]).addTo(map);";
           echo "marker.bindPopup('<b>Lokasi Jemput:</b> " . $row["address"] . "<br><b>Lokasi Tujuan:</b> " . $row["address_b"] . "').openPopup();";
         }
       }

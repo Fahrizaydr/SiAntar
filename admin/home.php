@@ -1,12 +1,16 @@
 <?php
 session_start();
 
-// Periksa apakah user telah login
-if (!isset($_SESSION['user_id'])) {
-    // Jika belum login, redirect ke halaman login
-    header("Location: user/login.php");
+// Periksa apakah user telah login dan memiliki status admin
+if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+    // Jika tidak memiliki hak admin, redirect ke halaman login
+    header("Location: ../user/login.php");
     exit();
 }
+
+// URL utama untuk referensi asset
+$main_url = "../";
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>SiAntar</title>
+    <title>SiAntar - Admin</title>
     <link href="<?= $main_url ?>asset/sb-admin/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="<?= $main_url ?>asset/image/logo.png">
@@ -31,8 +35,7 @@ if (!isset($_SESSION['user_id'])) {
             margin: 0;
             overflow-x: hidden;
             font-family: Arial, sans-serif;
-            background-image: url('img/bg2.jpg');
-            background-color: #E5FFFE;
+            background-image: url('../img/bg2.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -105,14 +108,14 @@ if (!isset($_SESSION['user_id'])) {
     </style>
 </head>
 <body>
-<header>
-    <div class="logo" style="margin-left: 15px;" color="white">SiAntar</div>
-    <div class="header-links">
-        <a href="index.php">Home</a>
-        <a href="riwayat.php">Riwayat</a>
-        <a href="user/logout.php" style="margin-right: 15px;">Logout</a>
-    </div>
-</header>
+    <header>
+        <div class="logo">SiAntar - Admin</div>
+        <div class="header-links">
+            <a href="#">Profil</a>
+            <a href="#">Riwayat</a>
+            <a href="../user/logout.php">Logout</a>
+        </div>
+    </header>
 
     <div>
         <h2 style="font-size: 70px; margin-top: 10px;  color : black;">SiAntar</h2> 
@@ -120,13 +123,16 @@ if (!isset($_SESSION['user_id'])) {
     </div>
 
     <div class="additional-cards">
+        <!-- Card 1 -->
         <div class="additional-card card1" onclick="location.href='lokasi-motor.php'">
             <h3><i class="fa-solid fa-motorcycle"></i> Motor</h3>
             <p>Siap antar dengan harga yang lebih ramah di kantong.</p>
         </div>
+
+        <!-- Card 2 -->
         <div class="additional-card card2" onclick="location.href='lokasi-mobil.php'">
             <h3><i class="fa-solid fa-car"></i> Mobil</h3>
-            <p>Siap antar dengan penumpang lebih banyak dan kenyamanan ekstra</p>
+            <p>Siap antar dengan penumpang lebih banyak dan kenyamanan ekstra.</p>
         </div>
     </div>
 </body>

@@ -8,7 +8,7 @@
   <meta name="author" content="" />
   <title>SiAntar</title>
   <!-- CSS Styles -->
-  <link href="<?= $main_url ?>asset/sb-admin/css/styles.css" rel="stylesheet" />
+
   <!-- Font Awesome -->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Favicon -->
@@ -27,12 +27,13 @@
       align-items: center;
       justify-content: center;
       margin: 0;
+      padding: 0;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background-image: url('img/bg2.jpg');
+      background-color: #E5FFFE;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 100vh; /* agar halaman mengisi tinggi layar */
+      height: 100vh;
     }
     header {
       width: 100%;
@@ -58,11 +59,14 @@
     }
     h3 {
       margin-bottom: 10px;
+      text-align: center;
     }
     h2 {
       color: black;
-      margin-left: 120px;
-      margin-bottom: 20px;
+      margin: 0;
+      padding: 10px 0;
+      font-size: 70px;
+      text-align: center;
     }
     #map {
       width: 60%;
@@ -79,7 +83,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
-    /* Menengahkan tombol di tengah halaman */
     .button-container {
       display: flex;
       justify-content: center;
@@ -90,24 +93,22 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="logo" style="margin-left: 15px;">SiAntar</div>
+    <div class="logo" style="margin-left: 15px;" color="white">SiAntar</div>
     <div class="header-links">
-      <a href="#">Profil</a>
-      <a href="#">Riwayat</a>
-      <a href="#" style="margin-right: 15px;">Logout</a>
+        <a href="index.php">Home</a>
+        <a href="riwayat.php">Riwayat</a>
+        <a href="user/logout.php" style="margin-right: 15px;">Logout</a>
     </div>
-  </header>
+</header>
   <!-- Fitur -->
   <div>
-    <h2 style="font-size: 70px; margin-top: 10px; margin-left: 34px">SiAntar</h2>
+    <h2>SiAntar</h2>
     <h3 class="p">Tentukan lokasi penjemputan anda</h3>
   </div>
   <!-- Peta -->
   <div id="map">
-    <div>
-      <h5 class="card-title"><i class="fa-solid fa-map-location-dot"></i> Peta</h5>
-      <div id="map" style="width: 100%; height: 400px;"></div>
-    </div>
+    <h5 class="card-title"><i class="fa-solid fa-map-location-dot"></i> Peta</h5>
+    <div style="width: 100%; height: 400px;"></div>
   </div>
   <!-- Tombol Lokasi Saya dan Lanjut -->
   <div class="button-container">
@@ -115,7 +116,7 @@
     <button id="nextButton">Lanjut</button>
   </div>
   <!-- Formulir untuk menyimpan data marker -->
-  <form id="markerForm" action="save_marker.php" method="POST">
+  <form id="markerForm" action="save_marker_mobil.php" method="POST">
     <input type="hidden" id="latInput" name="lat">
     <input type="hidden" id="lngInput" name="lng">
     <input type="hidden" id="addressInput" name="address">

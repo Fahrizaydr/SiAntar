@@ -49,7 +49,7 @@ if ($result_check->num_rows > 0) {
 
     if ($conn->query($sql_insert) === TRUE) {
         // Redirect ke halaman kondisi-pemesanan.php setelah penyimpanan berhasil
-        header("Location: kondisi-pemesanan.php");
+        header("Location: kondisi-pemesanan-mobil.php");
         exit();
     } else {
         echo "Error inserting record: " . $conn->error;

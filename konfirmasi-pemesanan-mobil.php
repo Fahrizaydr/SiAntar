@@ -120,7 +120,7 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="logo" style="margin-bottom: 10px; margin-left: 15px;" color="white">SiAntar</div>
+    <div class="logo" style="margin-left: 15px;" color="white">SiAntar</div>
     <div class="header-links">
         <a href="index.php">Home</a>
         <a href="riwayat.php">Riwayat</a>
@@ -247,7 +247,7 @@
       // Menghitung jarak antara dua titik dalam meter
       var distance = map.distance(latlngA, latlngB);
       // Menggunakan rumus harga 
-      var price = 10000 + ((distance / 1000) * 2000);
+      var price = 15000 + ((distance / 1000) * 3000);
 
       // Menampilkan jarak dan harga pada elemen HTML
       document.getElementById('distance').innerText = distance.toFixed(2);

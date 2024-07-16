@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +67,11 @@
 
         .alert {
             margin-bottom: 20px;
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         .card-header {
@@ -90,9 +99,20 @@
             <h1>Login</h1>
             <p>Silahkan masuk menggunakan akun Anda</p>
         </div>
+
+        <?php
+        // Menampilkan pesan error jika ada
+        if (isset($_SESSION['error_message'])) {
+            echo '<div class="alert">' . $_SESSION['error_message'] . '</div>';
+            unset($_SESSION['error_message']); // Menghapus pesan error setelah ditampilkan
+        }
+        ?>
+
         <form action="proses-login.php" method="POST">
             <input type="text" class="form-control" name="username" placeholder="Username" required>
             <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <input type="checkbox" class="form-check-input" name="admin" id="admin">
+            <label for="admin">Login sebagai admin</label>
             <button type="submit" class="btn-primary">Login</button>
         </form>
         <div class="text-muted">

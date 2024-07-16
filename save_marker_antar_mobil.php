@@ -34,7 +34,7 @@ if ($result->num_rows > 0) {
   // Execute statement
   if ($stmt->execute()) {
     // Redirect ke halaman selanjutnya setelah berhasil menyimpan
-    header("Location: konfirmasi-pemesanan.php"); // Ganti dengan halaman yang sesuai
+    header("Location: konfirmasi-pemesanan-mobil.php"); // Ganti dengan halaman yang sesuai
     exit(); // Penting: pastikan keluar dari skrip setelah redirect
   } else {
     echo "Error: " . $sql_update . "<br>" . $conn->error;

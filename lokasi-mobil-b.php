@@ -8,7 +8,7 @@
   <meta name="author" content="" />
   <title>SiAntar - Lokasi Antar</title>
   <!-- CSS Styles -->
-  <link href="<?= $main_url ?>asset/sb-admin/css/styles.css" rel="stylesheet" />
+ 
   <!-- Font Awesome -->
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
   <!-- Favicon -->
@@ -29,7 +29,7 @@
       margin: 0;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
-      background-image: url('img/bg2.jpg');
+      background-color: #E5FFFE;
       background-size: cover;
       background-repeat: no-repeat;
       height: 100vh; /* agar halaman mengisi tinggi layar */
@@ -90,17 +90,17 @@
 <body>
   <!-- Header -->
   <header>
-    <div class="logo" style="margin-left: 15px;">SiAntar</div>
+    <div class="logo" style="margin-left: 15px;" color="white">SiAntar</div>
     <div class="header-links">
-      <a href="#">Profil</a>
-      <a href="#">Riwayat</a>
-      <a href="#" style="margin-right: 15px;">Logout</a>
+        <a href="index.php">Home</a>
+        <a href="riwayat.php">Riwayat</a>
+        <a href="user/logout.php" style="margin-right: 15px;">Logout</a>
     </div>
-  </header>
+</header>
   <!-- Fitur -->
   <div>
-    <h2 style="font-size: 70px; margin-top: 10px; margin-left: 34px">SiAntar</h2>
-    <h3 class="p">Tentukan lokasi antar anda</h3>
+    <h2 style="font-size: 70px; margin-top: 10px; margin-left: 3px">SiAntar</h2>
+    <h3 class="p">Tentukan lokasi tujuan anda</h3>
   </div>
   <!-- Peta -->
   <div id="map">
@@ -114,7 +114,7 @@
     <button id="nextButton">Lanjut</button>
   </div>
   <!-- Formulir untuk menyimpan data marker -->
-  <form id="markerForm" action="save_marker_antar.php" method="POST">
+  <form id="markerForm" action="save_marker_antar_mobil.php" method="POST">
     <input type="hidden" id="latInput" name="lat-b">
     <input type="hidden" id="lngInput" name="lng-b">
     <input type="hidden" id="addressInput" name="address-b">
@@ -156,7 +156,7 @@
       }
 
       // Tambahkan popup ke marker
-      orangeMarker.bindPopup("<b>Marker Oren</b><br/>Lat: " + lat + "<br/>Lng: " + lng + "<br/>Alamat: " + address).openPopup();
+      orangeMarker.bindPopup("<b>Lokasi Tujuan</b><br/>Lat: " + lat + "<br/>Lng: " + lng + "<br/>Alamat: " + address).openPopup();
 
       // Simpan posisi marker oren
       orangeMarkerPosition = { lat: lat, lng: lng, address: address };
